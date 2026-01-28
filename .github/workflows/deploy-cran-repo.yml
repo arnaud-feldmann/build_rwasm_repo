@@ -15,7 +15,7 @@ jobs:
   deploy-cran-repo:
     uses: r-wasm/actions/.github/workflows/deploy-cran-repo.yml@v2
     with:
-      packages: disaggR dplyr
+      packages: cli cli cpp11 dplyr farver generics ggplot2 glue glue graphics graphics grDevices grDevices grid gtable isoband labeling lifecycle lifecycle magrittr methods methods pillar pkgconfig R6 R6 RColorBrewer rlang rlang S7 scales stats tibble tidyselect utf8 utils utils vctrs vctrs viridisLite withr withr
       webr-image: "ghcr.io/r-wasm/webr:v0.5.8"
     permissions:
       # To download GitHub Packages within action
