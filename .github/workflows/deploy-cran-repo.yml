@@ -18,7 +18,7 @@ jobs:
       packages: arrow assertthat bit bit64 cli cpp11 dplyr farver generics ggplot2 glue graphics grDevices grid gtable isoband labeling lifecycle magrittr methods pillar pkgconfig purrr R6 RColorBrewer rlang S7 scales stats tibble tidyselect tools utf8 utils vctrs viridisLite withr
       webr-image: "ghcr.io/r-wasm/webr:v0.5.8"
       env: |
-        LIBARROW_BINARY=FALSE
+        LIBARROW_BINARY=TRUE
         LIBARROW_MINIMAL=TRUE
         ARROW_JEMALLOC=OFF
         ARROW_MIMALLOC=OFF
