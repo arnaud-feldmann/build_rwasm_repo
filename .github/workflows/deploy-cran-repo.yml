@@ -30,6 +30,7 @@ jobs:
         ARROW_WITH_SNAPPY=OFF
         ARROW_WITH_ZLIB=OFF
         ARROW_WITH_ZSTD=OFF
+        ARROW_R_DEV=true
     permissions:
       # To download GitHub Packages within action
       repository-projects: read
