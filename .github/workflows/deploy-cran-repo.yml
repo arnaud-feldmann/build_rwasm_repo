@@ -18,8 +18,8 @@ jobs:
       packages: arrow assertthat bit bit64 cli cpp11 dplyr farver generics ggplot2 glue graphics grDevices grid gtable isoband labeling lifecycle magrittr methods pillar pkgconfig purrr R6 RColorBrewer rlang S7 scales stats tibble tidyselect tools utf8 utils vctrs viridisLite withr
       webr-image: "ghcr.io/r-wasm/webr:v0.5.8"
       env: |
-        LIBARROW_BINARY=false
-        LIBARROW_MINIMAL=true
+        LIBARROW_BINARY=FALSE
+        LIBARROW_MINIMAL=TRUE
         ARROW_JEMALLOC=OFF
         ARROW_MIMALLOC=OFF
         ARROW_JSON=OFF
@@ -30,7 +30,7 @@ jobs:
         ARROW_WITH_SNAPPY=OFF
         ARROW_WITH_ZLIB=OFF
         ARROW_WITH_ZSTD=OFF
-        ARROW_R_DEV=true
+        ARROW_R_DEV=TRUE
     permissions:
       # To download GitHub Packages within action
       repository-projects: read
