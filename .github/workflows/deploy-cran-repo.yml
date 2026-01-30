@@ -13,7 +13,7 @@ jobs:
   # Reads `./packages` for package references to put
   # into a CRAN-like repository hosted on GitHub pages
   deploy-cran-repo:
-    uses: arnaud-feldmann/actions/.github/workflows/deploy-cran-repo.yml@v4
+    uses: arnaud-feldmann/actions/.github/workflows/deploy-cran-repo.yml@v5
     with:
       packages: arrow assertthat bit bit64 cli cpp11 dplyr farver generics ggplot2 glue graphics grDevices grid gtable isoband labeling lifecycle magrittr methods pillar pkgconfig purrr R6 RColorBrewer rlang S7 scales stats tibble tidyselect tools utf8 utils vctrs viridisLite withr
       webr-image: "ghcr.io/r-wasm/webr:v0.5.8"
