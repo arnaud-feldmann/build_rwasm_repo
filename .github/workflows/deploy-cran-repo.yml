@@ -33,14 +33,14 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/webr-arrow:v0.4.3
+            ghcr.io/${{ github.repository_owner }}/webr-arrow:v0.5.8
 
   deploy-cran-repo:
     needs: build-webr-arrow-image
     uses: arnaud-feldmann/actions/.github/workflows/deploy-cran-repo.yml@v5
     with:
       packages: arrow assertthat bit bit64 cli cpp11 dplyr farver generics ggplot2 glue graphics grDevices grid gtable isoband labeling lifecycle magrittr methods pillar pkgconfig purrr R6 RColorBrewer rlang S7 scales stats tibble tidyselect tools utf8 utils vctrs viridisLite withr
-      webr-image: ghcr.io/${{ github.repository_owner }}/webr-arrow:v0.4.3
+      webr-image: ghcr.io/${{ github.repository_owner }}/webr-arrow:v0.5.8
       env: |
         LIBARROW_BINARY=TRUE
         PKG_LIBS=-lc++ -lc++abi
