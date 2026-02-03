@@ -43,6 +43,7 @@ jobs:
       webr-image: ghcr.io/${{ github.repository_owner }}/webr-arrow:v0.4.3
       env: |
         LIBARROW_BINARY=TRUE
+        PKG_LIBS=-lc++ -lc++abi
     permissions:
       repository-projects: read
       pages: write
