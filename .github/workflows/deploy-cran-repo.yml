@@ -1,49 +1,25 @@
+# Workflow derived from https://github.com/r-wasm/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
+    # Only build on main or master branch
     branches: [main, master]
+  # Or when triggered manually
   workflow_dispatch: {}
 
 name: Build and deploy wasm R package repository
 
 jobs:
-  build-webr-arrow-image:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and push image (webR + Arrow)
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: Dockerfile
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/webr-arrow:v0.5.6
-
+  # Reads `./packages` for package references to put
+  # into a CRAN-like repository hosted on GitHub pages
   deploy-cran-repo:
-    needs: build-webr-arrow-image
-    uses: arnaud-feldmann/actions/.github/workflows/deploy-cran-repo.yml@v5
+    uses: r-wasm/actions/.github/workflows/deploy-cran-repo.yml@v2
     with:
-      packages: arrow assertthat bit bit64 cli cpp11 dplyr farver generics ggplot2 glue graphics grDevices grid gtable isoband labeling lifecycle magrittr methods pillar pkgconfig purrr R6 RColorBrewer rlang S7 scales stats tibble tidyselect tools utf8 utils vctrs viridisLite withr
-      webr-image: ghcr.io/${{ github.repository_owner }}/webr-arrow:v0.5.6
-      env: |
-        LIBARROW_BINARY=TRUE
+      packages: cli cpp11 dplyr farver generics ggplot2 glue graphics grDevices grid gtable isoband labeling lifecycle magrittr methods pillar pkgconfig R6 RColorBrewer rlang S7 scales stats tibble tidyselect utf8 utils vctrs viridisLite withr
+      webr-image: "ghcr.io/r-wasm/webr:v0.5.8"
     permissions:
+      # To download GitHub Packages within action
       repository-projects: read
+      # For publishing to pages environment
       pages: write
       id-token: write
