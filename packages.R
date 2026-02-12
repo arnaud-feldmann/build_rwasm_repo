@@ -13,5 +13,5 @@ packages_and_dependencies <-
       paste(collapse = " ")
   }
 
-packages_and_dependencies("ggplot2", "dplyr")
+packages_and_dependencies("tidyverse")
 
