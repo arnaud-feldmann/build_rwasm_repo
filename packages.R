@@ -13,5 +13,5 @@ packages_and_dependencies <-
       paste(collapse = " ")
   }
 
-packages_and_dependencies("tidyverse", "nycflights13", "disaggR")
+packages_and_dependencies("tidyverse", "nycflights13", "disaggR", "foreign")
 
